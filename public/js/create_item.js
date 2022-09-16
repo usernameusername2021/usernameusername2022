@@ -30,7 +30,7 @@ if (storageAvailable()) {
 
 
 
-let itemInnerHTML = '<div class="item" data=""><div class="itemtp-container"><audio src="" id="audio"></audio><div id="wrapper"><img src="" alt="img" class="item-img"></div><span><i class="fas fa-3x fa-play" onclick="playSong(this)"></i></span><div class="options"><span><i class="fas fa-heart fa-lg" onclick="likeProduct(this)"></i></span><span><i class="fas fa-download fa-lg" onclick="downloadProduct(this)"></i></span></div></div><div class="itembt-container"><p class="name"></p><!-- <p class="info"></p> --></div></div> ';
+let itemInnerHTML = '<div class="item" data=""><div class="itemtp-container"><audio src="" id="audio"></audio><div id="wrapper"><img src="" alt="img" class="item-img"></div><span><i class="fas fa-3x fa-play" onclick="playSong(this)"></i></span><div class="options"><span><i class="fas fa-heart fa-lg" onclick="likeProduct(this)"></i></span><span><i class="fas fa-download fa-lg" onclick="downloadProduct(this)"></i></span></div></div><div class="itembt-container"><p class="name"></p><p class="artist"></p><!-- <p class="info"></p> --></div></div> ';
 function createItems() {
     let itemsInnerHtml = ''
     for (let index = 0; index < songs.length; index++) {
@@ -49,6 +49,7 @@ function fillItems() {
         items[index].querySelector("#audio").src = song.audio;
         items[index].querySelector(".item-img").src = song.img;
         items[index].querySelector(".name").innerHTML = song.name;
+        items[index].querySelector(".artist").innerHTML = song.artist;
         if (likedTracks.length > 0) {
             if (likedTracks.indexOf(song.id) != -1) {
                 items[index].querySelector(".fa-heart").classList.add('active');

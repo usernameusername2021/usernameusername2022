@@ -163,7 +163,7 @@ section.items p#empty {
 
 .item {
   width: 240px;
-  height: 270px;
+  height: 272px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -241,6 +241,13 @@ section.items p#empty {
   font-weight: 600;
 }
 
+.itembt-container .artist {
+  font-size: 11px;
+  margin-left: 10px;
+  font-weight: 600;
+  color: gray;
+}
+
 .itembt-container .info {
   margin-left: 10px;
   font-size: 10px;
@@ -294,6 +301,10 @@ section.items p#empty {
 
 .liked-tracks-count {
   color: white;
+}
+
+.loading_speed{
+  margin-top: 200px;
 }
 
 @media screen and (max-width: 1600px) {
@@ -411,7 +422,7 @@ section.items p#empty {
 
   #checkbox-menu:checked ~ .menu {
     --menuLiHeight: 60px;
-    --menuLiNumber: 3;
+    --menuLiNumber: 2;
     height: calc(var(--menuLiHeight) * var(--menuLiNumber));
     -webkit-transition: height 0.3s, -webkit-transform 0.3s;
     transition-timing-function: ease-out;
@@ -420,7 +431,7 @@ section.items p#empty {
 
   #checkbox-menu:checked ~ .menu .menu-ul {
     --menuLiHeight: 60px;
-    --menuLiNumber: 3;
+    --menuLiNumber: 2;
     height: calc(var(--menuLiHeight) * var(--menuLiNumber));
     -webkit-transition: height 0.1s, -webkit-transform 0.1s;
     transition-timing-function: ease-out;

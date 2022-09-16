@@ -1,0 +1,26 @@
+footer
+  .player
+    .song-slider
+      input.seek-bar(type='range' value='0')
+      span.current-time 0:00
+      span.song-duration 0:00
+    .footer-bt-container
+      .song-info
+        img.current-song-img(src='' alt='current-song-img')
+        .song-description
+          p.current-song-name(style='color: white; font-size: 15px; font-weight: 400; position: fixed;') name
+
+      .controls-cnt
+        span
+          i.fas.fa-backward(style='color: white;' onclick='backwardButton()')
+        span
+          i#footer-play-btn.fas.fa-play.fa-lg(style='color: white;' onclick='footerPlaySong(this)')
+        span
+          i.fas.fa-forward(style='color: white;' onclick='forwardButton()')
+      .controls-rght
+        span
+          i.fas.fa-retweet(onclick='Repeate(this)')
+          i#footer-heart.fas.fa-heart.fa-lg(onclick='refreshBarHeart(null)')
+          #volume-bar-container
+            i.fas.fa-volume-up(style='color: white;')
+            input.volume-bar(type='range' value='0')

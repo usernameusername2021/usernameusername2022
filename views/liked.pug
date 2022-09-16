@@ -1,0 +1,26 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover')
+  meta(name='theme-color' content='#080808')
+  title &Ncy;&acy;&zcy;&vcy;&acy;&ncy;&icy;&iecy;
+  link(rel='stylesheet' href='css/style.css')
+  link(rel='stylesheet' href='css/player.css')
+  link(rel='stylesheet' href='fonts/stylesheet.css')
+  script(src='https://kit.fontawesome.com/767667576b.js' crossorigin='anonymous')
+script(src='js/speed.js')
+script(ttype='text/javascript' src='js/songs.js')
+script(ttype='text/javascript' src='js/liked.js' async='')
+script(ttype='text/javascript' src='js/script.js' async='')
+script(ttype='text/javascript' src='js/menu_ul.js' async='')
+script(ttype='text/javascript' src='js/menu_highlight.js' async='')
+include ./modules/header.pug
+main
+  include ./modules/searchline.pug
+  section.items
+    p#empty Like something...
+
+  include ./modules/loading-speed.pug
+
+include ./modules/footer.pug

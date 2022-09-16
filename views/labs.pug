@@ -1,0 +1,28 @@
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title labs
+  link(rel='stylesheet' href='css/style.css')
+  link(rel='stylesheet' href='css/lab_table.css')
+  link(rel='stylesheet' href='fonts/stylesheet.css')
+  script(src='https://kit.fontawesome.com/767667576b.js' crossorigin='anonymous')
+  
+script(src='js/speed.js')
+script(ttype='text/javascript' src='js/menu_highlight.js' async='')
+script(ttype='text/javascript' src='js/menu_ul.js' async='')
+script(src='js/lab_table.js' defer='')
+include ./modules/header.pug
+main
+  section.lab-table
+    p
+      | lab 5
+    input#table-input(type='text' placeholder='')
+    #options.inactive
+      button#all.active(onclick='showAll(this)') All
+      button#active(onclick='showActive(this)') Active
+      button#completed(onclick='showCompleted(this)') Completed
+    ul#toDoList.inactive
+    button#save(onclick='saveList()') Save to local storage
+
+    include ./modules/loading-speed.pug
