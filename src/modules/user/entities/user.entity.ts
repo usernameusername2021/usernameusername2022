@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Songs } from "../../songs/entities/songs.entity";
 
 @Entity('user')
@@ -12,6 +12,7 @@ export class User extends BaseEntity{
     @Column({
         comment: "The user name",
         type: "varchar",
+        unique: true,
     })
     name: string;
 
@@ -19,8 +20,14 @@ export class User extends BaseEntity{
         comment: "The user password",
         type: "varchar",
     })
-    artist: string;
+    password: string;
     
-    @OneToMany(() => Songs, (songs) => songs.users)
-    liked_songs: Songs[];
+    @OneToMany(() => Songs, (songs) => songs.id)
+    songs: Songs[];
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    upddatedAt: Date;
 }

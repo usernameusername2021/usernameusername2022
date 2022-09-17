@@ -44,7 +44,27 @@ if (likedTracks.length > 0) {
 }
 
 function createLikedItems() {
-    let itemInnerHTML = '<div class="item" data=""><div class="itemtp-container"><audio src="" id="audio"></audio><div id="wrapper"><img src="" alt="img" class="item-img"></div><span><i class="fas fa-3x fa-play" onclick="playSong(this)"></i></span><div class="options"><span><i class="fas fa-heart fa-lg" onclick="likeProduct(this)"></i></span><span><i class="fas fa-download fa-lg" onclick="downloadProduct(this)"></i></span></div></div><div class="itembt-container"><p class="name"></p><p class="artist"></p><!-- <p class="info"></p> --></div></div>';
+    let itemInnerHTML = `
+<div class="item" data="">
+    <div class="itemtp-container">
+        <audio src="" id="audio"></audio>
+        <div id="wrapper">
+            <img src="" alt="img" class="item-img">
+        </div>
+        <span>
+            <i class="fas fa-3x fa-play" onclick="playSong(this)"></i>
+        </span>
+        <div class="options">
+            <span>
+                <i class="fas fa-heart fa-lg" onclick="likeProduct(this)"></i>
+            </span>
+        </div>
+    </div>
+    <div class="itembt-container">
+        <p class="name"></p>
+        <p class="artist"></p>
+    </div>
+</div>`;
     let itemsInnerHtml = ''
     for (let index = 0; index < likedTracks.length; index++) {
         itemsInnerHtml += itemInnerHTML;

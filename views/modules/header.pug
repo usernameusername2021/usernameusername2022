@@ -8,6 +8,10 @@ header
           a(href='/lab5') LAB5
         li
           a(href='/liked') LIKED
+        li
+          input.username(type="text" value="username") 
+          input.password(type="text" value="password") 
+          button(onclick="signin()") SIGNIN/SIGNUP
     .menu-header-media
       input#checkbox-menu(type='checkbox')
       ul.menu-header-list
@@ -22,3 +26,5 @@ header
             a(href='/liked') LIKED
           li
             a(href='/lab5') LAB5
+          li
+            button(onclick="signin()") SIGNIN

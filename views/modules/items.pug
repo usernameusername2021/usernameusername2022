@@ -1,15 +1,15 @@
-section.items
-  .item(data='')
-    .itemtp-container
-      audio#audio(src='')
-      #wrapper
-        img.item-img(src='' alt='img')
-      span
-        i.fas.fa-3x.fa-play(onclick='playSong(this)')
-      .options
+section.items 
+  each val, index in songs
+    .item(data='')
+      .itemtp-container
+        audio#audio(src=val.audio)
+        #wrapper
+          img.item-img(src=val.img alt='img')
         span
-          i.fas.fa-heart.fa-lg(onclick='likeProduct(this)')
-        span
-          i.fas.fa-download.fa-lg(onclick='downloadProduct(this)')
-    .itembt-container
-      p.name
+          i.fas.fa-3x.fa-play(onclick='playSong(this)')
+        .options
+          span
+            i.fas.fa-heart.fa-lg(onclick='likeProduct(this)')
+      .itembt-container
+        p.name #{val.name}
+        p.artist #{val.artist}

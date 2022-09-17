@@ -1,17 +1,21 @@
 import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { tap, timestamp } from 'rxjs/operators';
+import { map, tap, timestamp } from 'rxjs/operators';
 
 @Injectable()
 export class AppInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-    console.log('Before...');
+    console.log('........');
 
     const now = Date.now();
     return next
       .handle()
       .pipe(
-        tap(() => console.log(`After... ${Date.now() - now}ms`)),
+        map(data => {
+          data.loading_speed = Date.now() - now;
+          console.log(Date.now() - now)
+          return data;
+        }),
       );
   }
 }

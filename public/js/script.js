@@ -34,10 +34,10 @@ document.querySelector("#search-line").oninput = function () {
 
 
 function likedTracksRemoveItem(item) {
-  let index = likedTracks.indexOf(item);
-  if (index > -1) {
-    likedTracks.splice(index, 1);
-  }
+  // let index = likedTracks.indexOf(item);
+  // if (index > -1) {
+  //   likedTracks.splice(index, 1);
+  // }
 }
 
 function refreshBarHeart(elemHeartIsActive) {
@@ -73,21 +73,21 @@ function refreshBarHeart(elemHeartIsActive) {
 function likeProduct(elem) {
   elem.classList.toggle("active");
   if (elem.classList.contains("active")) {
-    likedTracks.push(parseInt(elem.parentElement.parentElement.parentElement.parentElement.attributes.data.value));
+    // likedTracks.push(parseInt(elem.parentElement.parentElement.parentElement.parentElement.attributes.data.value));
   } else {
-    likedTracksRemoveItem(parseInt(elem.parentElement.parentElement.parentElement.parentElement.attributes.data.value));
+    // likedTracksRemoveItem(parseInt(elem.parentElement.parentElement.parentElement.parentElement.attributes.data.value));
   }
   if (currentSong != null) {
     if (currentSong.parentElement.parentElement.parentElement == elem.parentElement.parentElement.parentElement.parentElement) {
       refreshBarHeart(elem.classList.contains("active"));
     }
   }
-  if (storageAvailable()) {
-    localStorage.setItem("likedTracks", JSON.stringify(likedTracks));
-  }
-  else {
-    console.log(storageAvailable());
-  }
+  // if (storageAvailable()) {
+  //   localStorage.setItem("likedTracks", JSON.stringify(likedTracks));
+  // }
+  // else {
+  //   console.log(storageAvailable());
+  // }
 
 }
 

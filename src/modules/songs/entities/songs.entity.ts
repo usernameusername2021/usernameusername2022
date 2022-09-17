@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "../../user/entities/user.entity";
 
 @Entity('songs')
@@ -33,6 +33,6 @@ export class Songs extends BaseEntity{
     })
     audio: string;
 
-    @ManyToMany(() => User, (users) => users.liked_songs)
-    users: User[];
+    @ManyToOne(() => User, (user) => user.songs)
+    user: User;
 }
