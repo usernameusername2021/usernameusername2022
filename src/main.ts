@@ -25,7 +25,7 @@ async function bootstrap() {
   const passport = require('passport');
   const LocalStrategy = require('passport-local').Strategy;
   app.use(session({
-      secret: process.env.SECRET,
+      secret: "asdasfdj091883123kasld123asd",
       resave: false,
       saveUninitialized: false,
       cookie: {maxAge: 360000}
