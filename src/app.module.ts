@@ -11,6 +11,7 @@ import { HttpModule} from '@nestjs/axios';
 import { LocalStrategy } from './modules/auth/local.strategy';
 import { PassportModule } from '@nestjs/passport';
 import { AuthModule } from './modules/auth/auth.module';
+import { LikeCounterModule } from './like-counter/like-counter.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -23,7 +24,7 @@ import { AuthModule } from './modules/auth/auth.module';
     entities: [User, Songs],
     synchronize: true,
     ssl: { rejectUnauthorized: false },
-  }), SongsModule, UserModule, HttpModule, AuthModule],
+  }), SongsModule, UserModule, HttpModule, AuthModule, LikeCounterModule],
   controllers: [AppController],
   providers: [AppService],
 })

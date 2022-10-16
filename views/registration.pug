@@ -1,0 +1,34 @@
+head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title labs
+    link(rel='stylesheet' href='css/registration.css')
+    link(rel='stylesheet' href='fonts/stylesheet.css')
+    script(src='https://kit.fontawesome.com/767667576b.js' crossorigin='anonymous')
+  
+script(ttype='text/javascript' src='js/menu_highlight.js' async='')
+script(ttype='text/javascript' src='js/registration.js' async='')
+
+
+header 
+    a.logo(href='/') ...
+
+main
+    .registration-block 
+        p.text Регистрация
+        .username_section.section
+            input.username(type="text" placeholder="username")
+            input.email(type="text" placeholder="email")
+        .username_alert
+        .passwords_section.section
+            input.password(type="password" placeholder="password")
+            input.confirm_password(type="password" placeholder="confirm password")
+        .password_alert 
+        .buttons 
+            button.authorize(onclick='authorize()') Вход
+            button.register(onclick='register()') Регистрация
+    
+    
+
+

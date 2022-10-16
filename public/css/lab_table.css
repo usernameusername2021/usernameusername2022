@@ -1,5 +1,6 @@
 #table-input {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 70px;
   top: 50px;
   margin: 0;
@@ -11,6 +12,7 @@ input {
   border: 2px solid black;
   border-radius: 0;
   outline: none;
+ 
 }
 
 .lab-table {

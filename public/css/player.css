@@ -1,11 +1,10 @@
 footer {
-  overflow: hidden;
   position: fixed;
   bottom: -200px;
   left: 0;
   width: 100vw;
   height: 81px;
-  z-index: 1;
+  z-index: 200;
 }
 footer.opened {
   bottom: 0px;
@@ -38,8 +37,8 @@ footer.opened {
 .song-slider {
   padding-left: 1px;
   padding-right: 1px;
-  height: 40px;
-  top: -20px;
+  height: 50px;
+  top: -9px;
   width: 100%;
   max-width: 1100px;
   position: absolute;
@@ -51,8 +50,9 @@ footer.opened {
   width: 100%;
   height: 10px;
   border-radius: 0px;
-  outline: 1px solid black;
-  outline-offset: -1px;
+  /* outline: 1px solid black; */
+  border: 1px solid black;
+
   background: #ffffff;
   overflow: hidden;
   cursor: pointer;
@@ -61,7 +61,7 @@ footer.opened {
 .seek-bar::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 1px;
-  height: 20px;
+  height: 100px;
   box-shadow: -1200px 0 0 1200px rgb(212, 0, 255);
 }
 .current-time,
@@ -126,6 +126,10 @@ footer.opened {
   height: 60px;
 }
 
+.current-song-artist{
+  margin-top: 20px;
+}
+
 .volume-bar {
   position: fixed;
   margin-left: 40px;
@@ -151,6 +155,7 @@ footer.opened {
   overflow: hidden;
   margin-top: 5px;
   margin-left: 10px;
+  height: 100%;
 }
 
 #volume-bar-container {

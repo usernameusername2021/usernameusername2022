@@ -4,16 +4,28 @@ import * as passport from 'passport';
 import * as session from 'express-session';
 import { join } from 'path';
 import { AppModule } from './app.module';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
    const app = await NestFactory.create<NestExpressApplication>(
     AppModule, 
   );
 
-  // const passport = require('passport');
-  // const LocalStrategy = require('passport-local').Strategy;
+  const config = new DocumentBuilder()
+    .setTitle('usernameusername2022')
+    .setDescription('The API description')
+    .setVersion('1.0')
+    .addTag('user')
+    .addTag('songs')
+    .addBasicAuth()
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, document);
+
+  const passport = require('passport');
+  const LocalStrategy = require('passport-local').Strategy;
   app.use(session({
-      secret: 'secretsecret',
+      secret: process.env.SECRET,
       resave: false,
       saveUninitialized: false,
       cookie: {maxAge: 360000}

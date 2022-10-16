@@ -15,7 +15,7 @@ export class AuthService {
     if (user && passwordValid) {
       return {
         userName: user.name,
-        userPassword: user.password
+        userID: user.id
       };
     }
     return null;

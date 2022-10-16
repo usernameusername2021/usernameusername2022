@@ -1,22 +1,22 @@
-import { HttpService } from '@nestjs/axios';
+
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { SongsController } from './modules/songs/controllers/songs.controller';
 import { Songs } from './modules/songs/entities/songs.entity';
-import { SongsRepository } from './modules/songs/repositories/songs.repository';
 import { SongsService } from './modules/songs/services/songs.service';
-import { SongsModule } from './modules/songs/songs.module';
+import { UserController } from './modules/user/controllers/user.controller';
+import { UserService } from './modules/user/services/user.service';
+
 @Injectable()
 export class AppService {
+ 
+  constructor(private songsController: SongsController, private userService: UserService, private songsService: SongsService){}
 
-  constructor(private songsService: SongsService){}
-
-  getViewName(): string {
-    return 'index';
+  async get_liked_songs(userID: number) {
+    return await this.userService.get_liked_songs(userID);
   }
 
   async get_all_songs():Promise<Songs[]>{
-    return await this.songsService.get_all_songs();
+    return await this.songsController.get_all_songs();
   }
 }
 

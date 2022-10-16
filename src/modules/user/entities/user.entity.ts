@@ -1,29 +1,39 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { ApiProperty } from "@nestjs/swagger";
+import { BaseEntity, Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Songs } from "../../songs/entities/songs.entity";
 
 @Entity('user')
 export class User extends BaseEntity{
     @PrimaryGeneratedColumn({
-        comment: "The user id number",
+        comment: "id number",
         type: "integer",
     })
     id: number; 
 
     @Column({
-        comment: "The user name",
+        comment: "user name",
         type: "varchar",
         unique: true,
     })
     name: string;
 
     @Column({
-        comment: "The user password",
+        comment: "user email",
+        type: "varchar",
+        unique: true
+    })
+    email: string;
+
+    @Column({
+        comment: "password",
         type: "varchar",
     })
     password: string;
     
-    @OneToMany(() => Songs, (songs) => songs.id)
-    songs: Songs[];
+
+    @ManyToMany(() => Songs, (songs) => songs.users)
+    @JoinTable()
+    liked: Songs[]
 
     @CreateDateColumn()
     createdAt: Date;

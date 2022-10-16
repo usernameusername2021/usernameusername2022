@@ -3,6 +3,13 @@
   margin: 0;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
+  font-family: 'Montserrat';
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 ::-webkit-scrollbar {
@@ -14,6 +21,78 @@ body {
   overflow-x: hidden;
 }
 
+.center{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_header{
+  width: 100%;
+  margin-left: 10%;
+  margin-bottom: 50px;
+  position: relative;
+  margin-top: 10px;
+  font-size: 72px;
+  font-weight: 800;
+}
+
+.main_header.pro {
+  margin-left: 0;
+}
+
+.opt{
+  font-size: 34px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.empty{
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.opt:after {
+  backface-visibility: hidden;
+  border: 1px solid white;
+  bottom: 0px;
+  left: -1px;
+  content: "";
+  display: block;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0px;
+}
+
+.opt:hover:after {
+  backface-visibility: hidden;
+  border-color: black;
+  transition: width 210ms ease-in-out;
+  width: 100%;
+}
+
+.profile_section{
+  margin-left: calc(5% + 50px);
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* .profile_options{
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+} */
+
+.empty{
+  /* margin-top: 20px; */
+  margin-bottom: 50px;
+}
+
 header {
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
@@ -22,19 +101,21 @@ header {
   font-size: 20px;
   background-color: rgb(8, 8, 8);
   margin: 0;
-  padding: 0;
   position: fixed;
-  z-index: 99999;
-  width: 100vw;
+  z-index: 100;
+  width: 50px;
+  height: 100vh;
   opacity: 1;
   overflow-y: hidden;
+
+  
 }
 
 header nav {
-  margin: 0 auto;
+  margin-right: auto;
   padding: 0;
-  max-width: 1100px;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 
 .username,
@@ -57,34 +138,50 @@ body {
 .menu-list {
   padding: 0;
   margin: 0;
-  height: 45px;
+  height: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
+}
+
+.profile.up{
+  transition: 0.2s;
+  bottom: 110px;
+  position: absolute;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile {
+  bottom: 0;
+  position: absolute;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .menu-list li {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
   font: 16px;
   list-style: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .menu-list li a,
-.menu-list li button {
+.menu-list li a i {
   text-decoration: none;
   color: rgb(173, 173, 173);
   transition: 0.2s;
-  padding: 5px;
 }
 
-.menu-list li button{
-  background-color: white;
-  font: 16px "Montserrat";
-  font-weight: 600;
-  color: black;
-  cursor: pointer;
+.menu-list li a.current{
+  color: rgb(255, 255, 255);
 }
 
-.menu-list li a.current {
+.menu-list li a.current > .menu-list li a i {
   color: rgb(255, 255, 255);
 }
 
@@ -97,18 +194,19 @@ li {
 }
 
 .logo {
-  font-size: 100px;
+  font-size: 40px;
   font-weight: 800;
   position: relative;
-  top: -10px;
 }
 
-.menu-list li a:hover {
+.menu-list li a:hover,
+.menu-list li a i:hover{
   color: rgb(255, 255, 255);
   transition: 0.4s;
 }
 .fa-heart {
   color: white;
+  cursor: pointer;
 }
 .item .fa-heart {
   opacity: 0;
@@ -129,7 +227,9 @@ li {
 main {
   position: absolute;
   top: 45px;
-  width: 100%;
+  left: 0;
+  margin-left: 50px;
+  width: calc(100vw - 50px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,35 +239,38 @@ main {
 section.items p#empty {
   position: absolute;
   top: 80%;
+  width: 100vw;
   left: calc(100vw / 2 - 100px);
 }
 
 .search-line {
-  padding-top: 2vh;
+  padding-top: 10px;
   height: 40px;
-  width: 300px;
-  border-bottom: 2px solid rgb(0, 0, 0);
+  width: 90%;
+  border-bottom: 1px solid rgb(0, 0, 0);
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
+  position: relative;
+  margin-top: -40px;
 }
 
-.search-line input[type="text"] {
+#search-line {
   height: 70px;
-  width: 250px;
+  width: 100%;
   background-color: rgb(255, 255, 255);
   color: rgb(8, 8, 8);
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 80%;
+  font-weight: 500;
   border: none;
-  text-align: center;
+  text-align: left;
+  margin-left: 20px;
   outline: none;
 }
 
-#search-icon {
-  height: 40px;
-  width: 40px;
+.search-line i {
+  margin-left: 5px;
 }
 
 .items {
@@ -181,8 +284,8 @@ section.items p#empty {
 }
 
 .item {
-  width: 240px;
-  height: 272px;
+  width: 220px;
+  height: 252px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -196,8 +299,8 @@ section.items p#empty {
   border: 1px solid black;
   transition: 0.2s;
   overflow: hidden;
-  height: 240px;
-  width: 240px;
+  height: 220px;
+  width: 220px;
   outline: 2px solid black;
   outline-offset: -2px;
 }
@@ -224,8 +327,8 @@ section.items p#empty {
   z-index: -10;
   overflow: hidden;
   position: absolute;
-  width: 250px;
-  height: 250px;
+  width: 230px;
+  height: 230px;
 }
 
 .item-img {
@@ -273,6 +376,10 @@ section.items p#empty {
   color: rgb(92, 92, 92);
 }
 
+.fa-play{
+  cursor: pointer;
+}
+
 .item .fa-play {
   color: rgb(0, 0, 0);
   align-self: center;
@@ -281,16 +388,18 @@ section.items p#empty {
 
 .options {
   width: 100%;
-  display: flex;
+
   align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
+  
 }
 
 .options span {
   text-align: center;
   height: 48px;
-  width: 48px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .itemtp-container:hover > .options span i.fa-heart {
@@ -301,6 +410,7 @@ section.items p#empty {
 }
 
 .options span i {
+  margin-left: 5px;
   width: 36px;
   line-height: 36px;
   padding-bottom: 60px;
@@ -309,6 +419,20 @@ section.items p#empty {
   border-radius: 10px;
   transition: 0.2s;
 }
+
+.options span p{
+  margin-right: 5px;
+  line-height: 36px;
+  margin-bottom: 60px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  position: relative;
+  top: -15px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+
 .options span i.fa-heart:hover {
   top: -25px;
   transition: 0.3s;
@@ -345,6 +469,59 @@ section.items p#empty {
 }
 
 @media screen and (max-width: 1024px) {
+
+  .menu-list {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .main_header{
+    font-size: 50px;
+  }
+
+  main{
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .profile{
+    position: relative;
+  }
+
+  .profile_section{
+    margin-left: 5%;
+  }
+
+  .logo{
+      top: -20px;
+  }
+
+  header {
+    font-size: 20px;
+    overflow-y: hidden;
+    width: 100vw;
+    max-width: 1100px;
+    height: 40px;
+  }
+
+  header nav {
+    margin-right: auto;
+    padding: 0;
+    max-width: 1100px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .search-line {
+      margin-top: -10px;
+  }
+
   .options span i.fa-heart:hover {
     top: -15px;
   }
@@ -378,7 +555,7 @@ section.items p#empty {
 
   .controls-rght span .fa-heart {
     position: absolute;
-    right: 5vw;
+    margin-right: 0;
   }
   .controls-rght span .fa-retweet {
     margin-left: 5px;
@@ -397,10 +574,17 @@ section.items p#empty {
 @media screen and (max-width: 860px) {
   .items {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 10px;
   }
 }
 
 @media screen and (max-width: 560px) {
+
+  .main_header{
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+
   .items {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -409,6 +593,19 @@ section.items p#empty {
     display: none;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .main_header {
+    font-size: 30px;
+    margin-bottom: 20px;
+    
+  }
+
+  .items{
+    margin-top: 0;
+  }
+}
+
 @media screen and (max-width: 350px) {
   .current-song-img {
     width: 45px;
@@ -419,11 +616,6 @@ section.items p#empty {
 @media screen and (max-width: 900px) {
   .menu-header {
     display: none;
-  }
-
-  header {
-    font-size: 20px;
-    overflow-y: hidden;
   }
 
   .menu-header-media {

@@ -20,6 +20,9 @@ export class SongsService {
         new_song.artist = songUpload.artist;
         new_song.img = songUpload.img;
         new_song.audio = songUpload.audio;
+        // new_song.like_counter = 0;
         return await new_song.save()
     }
+
+
 }

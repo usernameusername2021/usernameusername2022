@@ -9,14 +9,9 @@ import { SongsService } from './services/songs.service';
 @Module({
   controllers: [SongsController],
   imports: [TypeOrmModule.forFeature([SongsRepository])],
-  providers: [ SongsService ],
-  exports: [SongsService]
+  providers: [ SongsService, SongsController ],
+  exports: [SongsService, SongsController]
 })
 export class SongsModule {
-  
-  // constructor(private songsController: SongsController){}
 
-  // async get_all_songs():Promise<Songs[]>{
-  //   return await this.songsController.get_all_songs();
-  // }
 }

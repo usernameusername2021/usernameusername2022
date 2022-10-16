@@ -1,6 +1,7 @@
+
 section.items 
   each val, index in songs
-    .item(data='')
+    .item(data=val.id)
       .itemtp-container
         audio#audio(src=val.audio)
         #wrapper
@@ -9,7 +10,19 @@ section.items
           i.fas.fa-3x.fa-play(onclick='playSong(this)')
         .options
           span
-            i.fas.fa-heart.fa-lg(onclick='likeProduct(this)')
+            if liked_songs
+              - var liked = false;
+              each val2, index2 in liked_songs
+                if (val2.id == val.id)
+                  i.fas.fa-heart.fa-lg.active(onclick='likeProduct(this)')
+                  p.like_counter #{val.like_counter}
+                  - liked = true;
+              if (!liked)  
+                i.fas.fa-heart.fa-lg(onclick='likeProduct(this)')
+                p.like_counter #{val.like_counter}
+            else
+              i.fas.fa-heart.fa-lg(onclick='likeProduct(this)')
+              p.like_counter #{val.like_counter}
       .itembt-container
         p.name #{val.name}
         p.artist #{val.artist}

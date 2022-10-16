@@ -10,13 +10,13 @@ head
   
 script(src='js/speed.js')
 script(ttype='text/javascript' src='js/menu_highlight.js' async='')
-script(ttype='text/javascript' src='js/menu_ul.js' async='')
 script(src='js/lab_table.js' defer='')
 include ./modules/header.pug
 main
+  .search-line
+  p.main_header Лабораторная работа 5
+
   section.lab-table
-    p
-      | lab 5
     input#table-input(type='text' placeholder='')
     #options.inactive
       button#all.active(onclick='showAll(this)') All
