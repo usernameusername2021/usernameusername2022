@@ -20,14 +20,13 @@ export class UserController {
         a: {
             summary: "registration",
             description: "correct form of registration",
-            value: {name: "user123", email: "user123@gmail.com", password: "Password1", confirm: "Password1"}
+            value: {name: "user1234", email: "user1234@gmail.com", password: "Password1", confirm: "Password1"}
         }
     }
     })
     @ApiOperation({
         summary: 'Do user registration'
     })
-    @ApiResponse({ status: 201, description: 'Пользователь был зарегистрирован.'})
     @ApiResponse({ status: 400, description: 'Поля name, email, paswword, confirm, заполнены неверно.'})
     @Post("/register")
     async do_user_registration(@Body(ValidationPipe) userRegister: UserRegisterRequestDto): Promise<any>{
