@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post, ValidationPipe, Request, Param, UseFilters, UseGuards} from '@nestjs/common';
-import { ApiBasicAuth, ApiBody, ApiCookieAuth, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
+import { ApiBasicAuth, ApiBody, ApiCookieAuth, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AuthFilter } from 'src/modules/auth/filters/auth.filter';
 import { AuthenticatedGuard } from 'src/modules/auth/guard/authenticated.guard';
 import { Songs } from 'src/modules/songs/entities/songs.entity';
@@ -27,6 +27,8 @@ export class UserController {
     @ApiOperation({
         summary: 'Do user registration'
     })
+    @ApiResponse({ status: 201, description: 'Пользователь был зарегистрирован.'})
+    @ApiResponse({ status: 400, description: 'Поля name, email, paswword, confirm, заполнены неверно.'})
     @Post("/register")
     async do_user_registration(@Body(ValidationPipe) userRegister: UserRegisterRequestDto): Promise<any>{
         return await this.userService.do_user_registration(userRegister);

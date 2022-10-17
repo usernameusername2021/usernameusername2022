@@ -51,6 +51,14 @@ export class AppController {
   @ApiOperation({
       summary: 'Go to liked page'
   })
+  @ApiResponse({
+    status: 403,
+    description: 'Пользователь не был аутентифицирован.'
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Переход на страницу'
+  })
   @UseGuards(AuthenticatedGuard)
   @UseFilters(new AuthFilter())
   @Get("/liked")
@@ -78,6 +86,8 @@ export class AppController {
   @ApiOperation({
       summary: 'login'
   })
+  @ApiResponse({ status: 201, description: 'Пользователь авторизован.'})
+  @ApiResponse({ status: 401, description: 'Такого пользователя не существует.'})
   @UseGuards(LocalAuthGuard)
   @Post('/login')
   post_login(@Request() req): any{ 
@@ -103,7 +113,11 @@ export class AppController {
   })
   @ApiResponse({
     status: 403,
-    description: 'Forbidden.'
+    description: 'Пользователь не был аутентифицирован.'
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Переход на страницу'
   })
   @UseGuards(AuthenticatedGuard)
   @UseFilters(new AuthFilter())
