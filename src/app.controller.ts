@@ -51,14 +51,6 @@ export class AppController {
   @ApiOperation({
       summary: 'Go to liked page'
   })
-  @ApiResponse({
-    status: 403,
-    description: 'Пользователь не был аутентифицирован.'
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Переход на страницу'
-  })
   @UseGuards(AuthenticatedGuard)
   @UseFilters(new AuthFilter())
   @Get("/liked")
@@ -79,7 +71,7 @@ export class AppController {
       a: {
           summary: "login",
           description: "correct form of login",
-          value: {name: "user123", password: "Password1"}
+          value: {username: "user123", password: "Password1"}
       }
   }
   })
